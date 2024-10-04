@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdbdbd;
+        }
+        .num{
+            font-size: 35px;
+            color: white;
+        }
+        .text{
+            font-size: 15px;
+            color: white;
+            text-align: center;
+        }
+        .youtube{
+            color: #FF0000;
+            font-size: 30px;
+        }
+        .Instagram{
+            color: #FCAF45;
+            font-size: 30px;
+        }
+        .Facebook{
+            color: #316FF6;
+            font-size: 30px;
+        }
+        .linkedin{
+            color: #0077B5;
+            font-size: 30px;
+        }
+        .one{
+            border-top: 10px solid #FF0000;
+            width: 150px;
+            height: 150px;
+            background-color: #677b7e;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            font-weight: bolder;
+            padding: 10px 30px;
+            cursor: pointer;
+            box-shadow: 10px 14px 38px -22px rgba(0,0,0,1);
+            transition: all 0.2s ease;
+        }
+        .tow{
+            border-top: 10px solid #FCAF45;
+            width: 150px;
+            height: 150px;
+            background-color: #677b7e;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            font-weight: bolder;
+            padding: 10px 30px;
+            cursor: pointer;
+            box-shadow: 10px 14px 38px -22px rgba(0,0,0,1);
+            transition: all 0.2s ease;
+        }
+        .three{
+            border-top: 10px solid #316FF6;
+            width: 150px;
+            height: 150px;
+            background-color: #677b7e;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            font-weight: bolder;
+            padding: 10px 30px;
+            cursor: pointer;
+            box-shadow: 10px 14px 38px -22px rgba(0,0,0,1);
+            transition: all 0.2s ease;
+        }
+        .four{
+            border-top: 10px solid #0077B5;
+            width: 150px;
+            height: 150px;
+            background-color: #677b7e;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            font-weight: bolder;
+            padding: 10px 30px;
+            cursor: pointer;
+            box-shadow: 10px 14px 38px -22px rgba(0,0,0,1);
+            transition: all 0.2s ease;
+        }
+        .one:hover{
+          transform: rotate(5deg) 
+          scale(105%);
+        }
+        .tow:hover{
+          transform: rotate(5deg) 
+          scale(105%);
+        }
+        .three:hover{
+          transform: rotate(5deg) 
+          scale(105%);
+        }
+        .four:hover{
+          transform: rotate(5deg) 
+          scale(105%);
+        }
+        @media (max-width:320px){
+            .box{
+                padding: 50px 0;
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdbdbd;
+        }
+            
+        }
+        @media (max-width:425px){
+            .box{
+                padding: 50px 0;
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdbdbd;
+        }
+            
+        }
+        @media (max-width:768px){
+            .box{
+                padding: 50px 0;
+            width: 100vw;
+            height: auto;
+            display: flex;
+           
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdbdbd;
+        }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+        <div class="tow">
+            <span class="Instagram"><i class="fa-brands fa-square-instagram"></i></span>
+            <span class="num" data-value="3500">000</span>
+            <span class="text"> Following on Instagram </span>
+        </div>
+        <div class="three">
+            <span class="Facebook"><i class="fa-brands fa-facebook"></i></span>
+            <span class="num" data-value="6400">000</span>
+            <span class="text"> Following on Facebook </span>
+        </div>
+        <div class="one">
+            <span class="youtube"><i class="fa-brands fa-youtube"></i></span>
+            <span class="num" data-value="1500">000</span>
+            <span class="text"> Following on YouTube </span>
+        </div>
+        <div class="four">
+            <span class="linkedin"><i class="fa-brands fa-linkedin"></i></span>
+            <span class="num" data-value="1200">000</span>
+            <span class="text"> Following on linkedin </span>
+        </div>
+    </div>
+
+
+    <script>
+        const ValueDisplays = document.querySelectorAll(".num");
+        let interval = 5000;
+
+        ValueDisplays.forEach((ValueDisplay) => {
+           // console.log(ValueDisplay)
+            let startValue = 0 ;
+            let endValue = parseInt(ValueDisplay.getAttribute("data-value"));
+            let duration = Math.floor(interval/endValue);
+
+            setInterval(()=>{
+                startValue += 1 ;
+                ValueDisplay.textContent = startValue ;
+            })
+
+            // console.log(duration)
+           // console.log(startValue)
+           // console.log(endValue)
+        })
+
+    </script>
+</body>
+</html>
